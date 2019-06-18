@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0]
+
+### Added
+- Added MarkupMenu default configuration to /site/config.php.
+
+### Changed
+- Updated MarkupMenu module.
+- Switched last few MarkupSimpleNavigation references to MarkupMenu.
+
 ## [0.1.0]
 
 ### Added
