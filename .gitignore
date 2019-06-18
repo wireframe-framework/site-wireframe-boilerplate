@@ -1,0 +1,15 @@
+# ProcessWire assets
+assets
+
+# Temporary or backup files
+*~
+*#*#
+*.bak
+*.old
+*.backup
+*.sql
+.DS_Store
+
+# Development files
+config-dev.php
+.env

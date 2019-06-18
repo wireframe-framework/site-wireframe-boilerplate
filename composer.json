@@ -1,0 +1,24 @@
+{
+    "name": "wireframe-framework/site-wireframe-boilerplate",
+    "type": "pw-site-profile",
+    "description": "A ProcessWire starter site profile based on the wireframe output framework.",
+    "keywords": ["processwire", "site-profile"],
+    "homepage": "https://wireframe-framework.com",
+    "license": "MPL-2.0",
+    "authors": [
+        {
+            "name": "Teppo Koivula",
+            "homepage": "https://wireframe-framework.com",
+            "email": "teppo@wireframe-framework.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "processwire/processwire": "^3.0",
+        "wireframe-framework/processwire-composer-installer": "^0.0.5",
+        "teppokoivula/markup-menu": "^0.3.0",
+        "wireframe-framework/wireframe": "^0.0.15"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
