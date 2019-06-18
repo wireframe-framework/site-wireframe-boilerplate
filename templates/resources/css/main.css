@@ -204,14 +204,15 @@ main {
     border-bottom: 0;
 }
 
+.menu__item--parent,
 .menu__item--current {
     background: #fff;
     color: var(--text-color);
     text-decoration: none;
 }
 
-.menu__item:not(.menu__item--current):hover,
-.menu__item:not(.menu__item--current):focus {
+.menu__item:not(.menu__item--current):not(.menu__item--parent):hover,
+.menu__item:not(.menu__item--current):not(.menu__item--parent):focus {
     text-decoration: underline;
 }
 
@@ -260,13 +261,14 @@ main {
     text-decoration: underline;
 }
 
+.menu--top .menu__item--parent,
 .menu--top .menu__item--current {
     text-decoration: none;
     color: var(--text-color);
 }
 
-.menu--top .menu__item:not(.menu__item--current):hover,
-.menu--top .menu__item:not(.menu__item--current):focus {
+.menu--top .menu__item:not(.menu__item--current):not(.menu__item--parent):hover,
+.menu--top .menu__item:not(.menu__item--current):not(.menu__item--parent):focus {
     background-color: rgba(255,255,255,.15);
     text-decoration: none;
 }
