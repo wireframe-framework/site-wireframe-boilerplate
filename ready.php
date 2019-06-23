@@ -13,7 +13,7 @@ function replaceIconShortcodes(HookEvent $event) {
     }
 }
 if ($page->template !== 'admin') {
-    $wire->addHookAfter('wireframe::render', 'replaceIconShortcodes');
+    $wire->addHookAfter('Wireframe::render', 'replaceIconShortcodes');
 }
 
 /**
@@ -82,5 +82,5 @@ function minifyHTML(HookEvent $event) {
 
 }
 if (!$config->debug) {
-    $wire->addHookAfter('wireframe::render', 'minifyHTML');
+    $wire->addHookAfter('Wireframe::render', 'minifyHTML');
 }

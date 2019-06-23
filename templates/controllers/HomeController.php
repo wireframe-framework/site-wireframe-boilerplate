@@ -1,11 +1,11 @@
 <?php
 
-namespace wireframe\controller;
+namespace Wireframe\Controller;
 
 /**
  * HomeController is the Controller class for the home template
  */
-class HomeController extends \wireframe\Controller {
+class HomeController extends \Wireframe\Controller {
 
     /**
      * Init method

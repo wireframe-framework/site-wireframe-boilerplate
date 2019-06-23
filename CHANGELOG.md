@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Install instructions, requirements, etc. were added to the README file.
+- install.sql added for the ProcessWire installation process.
+
+### Changed
+- .gitignore file updated based on the Bare Minimum Git project. Added default ignore for the modules directory.
+- Update Wireframe, MarkupMenu, and processwire-composer-installer dependencies to latest versions.
+
 ## [0.2.1] - 2019-06-23
 
 ### Changed

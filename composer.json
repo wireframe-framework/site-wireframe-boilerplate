@@ -15,9 +15,9 @@
     "require": {
         "php": ">=7.1",
         "processwire/processwire": "^3.0",
-        "wireframe-framework/processwire-composer-installer": "^0.0.5",
-        "teppokoivula/markup-menu": "^0.5",
-        "wireframe-framework/wireframe": "^0.0.15"
+        "wireframe-framework/processwire-composer-installer": "^0.1",
+        "teppokoivula/markup-menu": "^0.6",
+        "wireframe-framework/wireframe": "^0.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
