@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Install instructions, requirements, etc. were added to the README file.
+
 ### Changed
 - .gitignore file updated based on the Bare Minimum Git project. Added default ignore for the modules directory.
 
