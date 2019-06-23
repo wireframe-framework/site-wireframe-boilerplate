@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------------
 # .gitignore for wireframe boilerplate
-# 
+#
 # This file is loosely based on the Bare Minimum Git project, version 20181206,
 # and modified for the ProcessWire wireframe boilerplate site profile.
 #
@@ -60,6 +60,9 @@ Thumbs.db
 *.rar
 *.tar
 *.zip
+
+# Ignore env.php.
+/env.php
 
 # ------------------------------------------------------------------------------
 # ProcessWire Files and Directories
