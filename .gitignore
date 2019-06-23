@@ -1,15 +1,88 @@
-# ProcessWire assets
-assets
+# ------------------------------------------------------------------------------
+# .gitignore for wireframe boilerplate
+# 
+# This file is loosely based on the Bare Minimum Git project, version 20181206,
+# and modified for the ProcessWire wireframe boilerplate site profile.
+#
+# Please modify the file further to suite the needs of your project. You may for
+# an example want to add more whitelisted dot-prefixed files depending on which
+# tools and/or practices you're actually using in your project.
+#
+# Please note that by default ProcessWire modules are not included in Git! This
+# is an intentional strategy, as in wireframe boilerplate modules are installed
+# with Composer. Comment those lines out if versioning modules is important for
+# your workflow.
+#
+# @link https://gist.github.com/salcode/10017553 The Bare Minimum Git project.
+#
+# @version 0.1.0
+# @updated 2019-06-23
+# ------------------------------------------------------------------------------
 
-# Temporary or backup files
-*~
-*#*#
-*.bak
-*.old
-*.backup
+# ------------------------------------------------------------------------------
+# General Purpose and Bare Minimum Git Defaults
+# ------------------------------------------------------------------------------
+
+# Ignore all files starting with ".", or "~", or "#".
+.*
+~*
+\#*
+
+# Ignore Node/Grunt dependency directories.
+node_modules/
+
+# Ignore Bower components directories.
+bower_components/
+
+# Ignore Composer vendor directory.
+/vendor/
+
+# Ignore OS generated files.
+ehthumbs.db
+Thumbs.db
+
+# Ignore editor files.
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+
+# Ignore log files, SQL dumps, and databases.
+*.log
 *.sql
-.DS_Store
+*.sqlite
 
-# Development files
-config-dev.php
-.env
+# Ignore packaged files.
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# ------------------------------------------------------------------------------
+# ProcessWire Files and Directories
+# ------------------------------------------------------------------------------
+
+# Ignore the assets directory.
+/assets/
+
+# Ignore the development config file.
+/config-dev.php
+
+# Ignore the modules directory.
+#
+# With wireframe boilerplate the recommended way to install modules is by adding
+# them as Composer dependencies. You can manually add specific module folders or
+# comment out the following line if this doesn't suit your workflow.
+/modules/
+
+# ------------------------------------------------------------------------------
+# Whitelisted Files
+# ------------------------------------------------------------------------------
+
+# track these files, if they exist
+!.gitignore
+!.editorconfig
+!.phpcs.xml.dist
