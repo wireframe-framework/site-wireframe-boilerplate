@@ -36,6 +36,24 @@ Important considerations regarding the .gitignore file:
   includes any file with a .backup, .bak, .old, .tmp, or .temp suffix.
 - Composer, Node, Grunt, and Bower default install directories are ignored.
 
+### Installing modules without Composer
+
+Since the /site/modules/ directory is by default included in the .gitignore file ignore rules, files
+added beneath it won't show up if you add them and type `git status` in the site directory. This is
+by design, since the wireframe boilerplate expects modules to be installed with Composer. That being
+said, installing modules without Composer and adding them to your version control system is easy:
+
+- Download or clone the module files into your /site/modules/ directory.
+- From your site directory, run `git add -f modules/[module-folder]`.
+    - Note that the `-f` flag is very important – if you omit it, Git won't allow you to add content
+      into an ignored folder!
+- Commit your newly added files to Git with `git commit modules/[module-folder] `.
+
+Another way, obviously, would be to comment out or remove the line in the .gitignore file affecting
+the modules directory. If you really want to add all your module files and directories to Git, this
+is a perfectly fine thing to do. And finally, you can also manually add individual module folders
+into the "whitelisted files" section of your .gitignore file.
+
 ### Whitelisted files
 
 At the end of the .gitignore file you'll find a section for whitelisted files. If your site requires
