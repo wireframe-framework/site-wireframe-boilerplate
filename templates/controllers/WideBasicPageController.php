@@ -1,8 +1,8 @@
 <?php
 
-namespace wireframe\controller;
+namespace Wireframe\Controller;
 
-class WideBasicPageController extends \wireframe\Controller {
+class WideBasicPageController extends \Wireframe\Controller {
 
     /**
      * Init method
