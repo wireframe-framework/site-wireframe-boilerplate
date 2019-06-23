@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2019-06-23
+
+### Changed
+- Wireframe updated to the latest version (0.2.0).
+- View related templates directories reorganized to match the new default structure from Wireframe.
+
 ## [0.3.1] - 2019-06-23
 
 ### Fixed
