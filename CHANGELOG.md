@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.1] - 2019-06-23
 
+### Chanaged
+- Ignore the /site/install/ directory by default.
+
 ### Fixed
 - Added assets directory so that ProcessWire installer will work as expectd.
 

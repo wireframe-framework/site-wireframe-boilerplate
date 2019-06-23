@@ -83,6 +83,9 @@ Thumbs.db
 # Ignore the assets directory.
 /assets/
 
+# Ignore the install directory.
+/install/
+
 # Ignore the development config file.
 /config-dev.php
 
