@@ -182,9 +182,14 @@ main {
     padding: 0;
 }
 
-.menu__list--inner {
+.menu__list {
     padding: var(--layout-spacing-eight) 0;
     background: rgba(0,0,0,.125);
+}
+
+.menu__list--level-1 {
+    padding: 0;
+    background: transparent;
 }
 
 .menu__item {
@@ -213,11 +218,6 @@ main {
 
 .menu__item:not(.menu__item--current):not(.menu__item--parent):hover,
 .menu__item:not(.menu__item--current):not(.menu__item--parent):focus {
-    text-decoration: underline;
-}
-
-.menu__item:hover,
-.menu__item:focus {
     text-decoration: underline;
 }
 
