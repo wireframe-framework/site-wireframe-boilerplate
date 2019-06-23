@@ -61,6 +61,18 @@ Thumbs.db
 *.tar
 *.zip
 
+# Ignore temporary and backup files.
+#
+# Note that the intention here is not to list all imaginable backup/temp files,
+# but rather most common ones that may accidentally allow read access to (PHP)
+# code. *Renaming a .php file to .php.bak, .php.backup, etc. is a bad practice
+# and should be strongly discouraged!*
+*.backup
+*.bak
+*.old
+*.tmp
+*.temp
+
 # Ignore env.php.
 /env.php
 

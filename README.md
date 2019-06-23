@@ -29,9 +29,11 @@ Important considerations regarding the .gitignore file:
   to be bundled using Composer, but you can also add specific module folders manually, or commment
   this rule out in .gitignore.
 - ProcessWire assets directory is ignored.
-- ProcessWire development config file (config-dev.php) is ignored.
-- Files starting with a dot (.), a hash/pound character (#), or tilde (~) are ignored.
-- Various types of temporary files, SQL databases and dumps, and packaged files are ignored.
+- ProcessWire development config file (config-dev.php) and often used PHP environment variable file
+  env.php are both ignored.
+- Files starting with a dot (.), a hash/pound character (#), or a tilde (~) are ignored.
+- Various types of temporary files, SQL databases and dumps, and packaged files are ignored. This
+  includes any file with a .backup, .bak, .old, .tmp, or .temp suffix.
 - Composer, Node, Grunt, and Bower default install directories are ignored.
 
 ### Whitelisted files
