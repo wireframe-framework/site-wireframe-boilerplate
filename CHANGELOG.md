@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2019-06-26
+
+### Added
+- Added head script tag for setting a 'js' class to document root as early as possible.
+- Added JavaScript based toggle feature to mobile menu subtrees.
+- Added utility CSS class 'visually-hidden'.
+
+### Changed
+- Changed header background to new dark blue color (a11n).
+
 ## [0.4.0] - 2019-06-23
 
 ### Changed
