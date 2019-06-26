@@ -341,6 +341,10 @@ main {
     position: relative;
 }
 
+.js .menu--mobile .menu__item--has-children {
+    padding-right: 4.5rem;
+}
+
 .menu__item__toggle {
     position: absolute;
     right: 1rem;
