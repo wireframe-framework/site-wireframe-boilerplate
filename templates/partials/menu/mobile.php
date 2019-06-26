@@ -7,6 +7,7 @@
 echo $menu->render([
     'root_page' => $home,
     'current_page' => $page,
+    'collapsed' => false,
     'placeholders' => [
         'menu_class_modifier' => 'mobile',
         'aria_label' => 'Navigation',

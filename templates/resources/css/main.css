@@ -64,6 +64,7 @@ body {
     --site-color-dark-gray: #373541;
     --site-color-light-gray: #eee;
     --site-color-code-gray: #1d1f21;
+    --site-color-dark-blue: #1e3348;
     --text-color: #333;
 }
 
@@ -138,7 +139,7 @@ main {
     color: #fff;
     padding: var(--layout-spacing-half) 0;
     margin: 0 0 1rem 0;
-    background-color: var(--site-color-red);
+    background-color: var(--site-color-dark-blue);
 }
 
 .header__column {
@@ -237,6 +238,7 @@ main {
 
 .menu--top {
     margin: var(--layout-spacing) 0 0;
+    background-color: transparent;
     border: 0;
 }
 
@@ -318,7 +320,22 @@ main {
 }
 
 .menu--mobile .menu__list-item--has-children {
-    border-bottom: 0;
+    position: relative;
+}
+
+.menu__item__toggle {
+    position: absolute;
+    right: 1rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    top: .35rem;
+    background: var(--site-color-dark-blue);
+    color: #fff;
+    border: 0;
+}
+
+.menu__item__toggle[aria-expanded=true] {
+    opacity: 0.8;
 }
 
 /* Sub menu */
