@@ -3,6 +3,10 @@
 
     <head>
 
+        <script>
+         document.documentElement.classList.add('js');
+        </script>
+
         <!-- metadata -->
         <?php if ($page->canonical_url): ?>
             <link rel="canonical" href="<?= $page->canonical_url ?>">
