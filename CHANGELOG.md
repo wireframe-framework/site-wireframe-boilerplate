@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.4] - 2019-06-27
+
+### Changed
+- Various accessibility improvements, mainly for site navigation.
+- Some minor layout improvements.
+
 ## [0.5.3] - 2019-06-27
 
 ### Fixed
