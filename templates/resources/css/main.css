@@ -306,8 +306,11 @@ main {
     position: absolute;
     top: 0;
     right: 0;
+    width: 5.375rem;
+    height: 5.375rem;
+    line-height: 5.5rem;
+    text-align: center;
     cursor: pointer;
-    padding: var(--layout-spacing-half);
     color: var(--site-color-red);
     transition: transform .2s ease-in-out;
 }
@@ -360,6 +363,7 @@ main {
     background: var(--site-color-dark-blue);
     color: #fff;
     border: 0;
+    cursor: pointer;
 }
 
 .menu__item__toggle[aria-expanded=true] {
