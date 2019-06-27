@@ -55,7 +55,8 @@ $config->defaultAdminTheme = 'AdminThemeUikit';
  */
 $config->MarkupMenu = [
     'templates' => [
-        'nav' => '<nav class="{classes} menu--{menu_class_modifier}" aria-label="{aria_label}">%s</nav>',
+        'nav' => '<nav class="{classes} menu--{menu_class_modifier}" id="{menu_class_modifier}-menu" aria-label="{aria_label}">%s</nav>',
+        'item_current' => '<a class="{classes}" href="{item.url}" tabindex="0" aria-label="Current page: {item.title}">{item.title}</a>',
     ],
 ];
 
