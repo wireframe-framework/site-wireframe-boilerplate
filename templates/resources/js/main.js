@@ -16,6 +16,19 @@ document.addEventListener('DOMContentLoaded', function(event) {
     });
 });
 
+// Mobile menu toggle keyboard support
+document.querySelectorAll('.menu-toggle-label').forEach(function(toggleLabel) {
+    toggleLabel.addEventListener('keydown', function(event) {
+        // 40 = down, 38 = up, 13 = enter, 32 = space
+        if ([40, 38, 13, 32].indexOf(event.keyCode) > -1) {
+            const mobileMenuInput = event.target.previousElementSibling;
+            event.preventDefault();
+            mobileMenuInput.checked = event.keyCode === 40 ? true : (event.keyCode === 38 ? false : !mobileMenuInput.checked);
+            mobileMenuInput.setAttribute('aria-expanded', mobileMenuInput.checked);
+        }
+    });
+});
+
 // Container for submenu toggle button texts
 const submenuToggleTexts = {
     'true': 'Open',
@@ -33,6 +46,15 @@ const menuItemSelector = '.menu--mobile .menu__item--has-children';
 const submenuIDPrefix = 'js-toggle-menu--';
 const submenuToggleClass = 'menu__item__toggle';
 const submenuToggleIconClass = 'fas';
+
+// Helper function for displaying or hiding submenu
+function toggleSubmenu(submenu, submenuToggle, submenuToggleText, submenuToggleIcon, hiddenState) {
+    submenu.hidden = hiddenState;
+    submenuToggle.setAttribute('aria-expanded', !submenu.hidden);
+    submenuToggleText.nodeValue = submenuToggleTexts[submenu.hidden];
+    submenuToggleIcon.classList.remove(submenuToggleIconClasses[!submenu.hidden]);
+    submenuToggleIcon.classList.add(submenuToggleIconClasses[submenu.hidden]);
+}
 
 document.querySelectorAll(menuItemSelector).forEach(function(menuItem, index) {
     // Get and hide submenu
@@ -55,16 +77,22 @@ document.querySelectorAll(menuItemSelector).forEach(function(menuItem, index) {
     submenuToggleIcon.classList.add(submenuToggleIconClass, submenuToggleIconClasses[submenu.hidden]);
     submenuToggle.appendChild(submenuToggleIcon);
 
-    // Add submenu toggle button event listener
+    // Add submenu toggle button click event listener
     submenuToggle.addEventListener('click', function() {
-        submenu.hidden = !submenu.hidden;
-        submenuToggle.setAttribute('aria-expanded', !submenu.hidden);
-        submenuToggleText.nodeValue = submenuToggleTexts[submenu.hidden];
-        submenuToggleIcon.classList.remove(submenuToggleIconClasses[!submenu.hidden]);
-        submenuToggleIcon.classList.add(submenuToggleIconClasses[submenu.hidden]);
+        toggleSubmenu(submenu, submenuToggle, submenuToggleText, submenuToggleIcon, !submenu.hidden);
+    });
+
+    // Add submenu toggle button keydown event listener
+    submenuToggle.addEventListener('keydown', function(event) {
+        // 40 = down, 38 = up, 13 = enter, 32 = space
+        if ([40, 38, 13, 32].indexOf(event.keyCode) > -1) {
+            event.preventDefault();
+            hiddenState = event.keyCode === 40 ? false : (event.keyCode === 38 ? true : !submenu.hidden);
+            toggleSubmenu(submenu, submenuToggle, submenuToggleText, submenuToggleIcon, hiddenState);
+        }
     });
 
     // Insert toggle before menu item
-    menuItem.parentNode.insertBefore(submenuToggle, menuItem);
+    menuItem.parentNode.insertBefore(submenuToggle, menuItem.nextSibling);
 });
 
