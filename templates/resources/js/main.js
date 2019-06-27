@@ -1,3 +1,21 @@
+// Be nice to IE11
+if (typeof NodeList.prototype.forEach !== 'function')  {
+    NodeList.prototype.forEach = Array.prototype.forEach;
+}
+if (!(window.CSS && window.CSS.supports && window.CSS.supports('--fake-var', 0))) {
+    document.write('<script src="https:\/\/cdn.jsdelivr.net\/npm\/css-vars-ponyfill@2"><\/script>');
+    document.addEventListener("DOMContentLoaded", function () {
+        if (typeof cssVars === "function") cssVars();
+    });
+}
+
+// Initialize highlight.js
+document.addEventListener('DOMContentLoaded', function(event) {
+    document.querySelectorAll('pre code').forEach(function(block) {
+        hljs.highlightBlock(block);
+    });
+});
+
 // Container for submenu toggle button texts
 const submenuToggleTexts = {
     'true': 'Open',
@@ -16,7 +34,7 @@ const submenuIDPrefix = 'js-toggle-menu--';
 const submenuToggleClass = 'menu__item__toggle';
 const submenuToggleIconClass = 'fas';
 
-document.querySelectorAll(menuItemSelector).forEach((menuItem, index) => {
+document.querySelectorAll(menuItemSelector).forEach(function(menuItem, index) {
     // Get and hide submenu
     const submenu = menuItem.nextSibling;
     const submenuID = submenuIDPrefix + index;
@@ -38,7 +56,7 @@ document.querySelectorAll(menuItemSelector).forEach((menuItem, index) => {
     submenuToggle.appendChild(submenuToggleIcon);
 
     // Add submenu toggle button event listener
-    submenuToggle.addEventListener('click', () => {
+    submenuToggle.addEventListener('click', function() {
         submenu.hidden = !submenu.hidden;
         submenuToggle.setAttribute('aria-expanded', !submenu.hidden);
         submenuToggleText.nodeValue = submenuToggleTexts[submenu.hidden];
@@ -49,3 +67,4 @@ document.querySelectorAll(menuItemSelector).forEach((menuItem, index) => {
     // Insert toggle before menu item
     menuItem.parentNode.insertBefore(submenuToggle, menuItem);
 });
+
