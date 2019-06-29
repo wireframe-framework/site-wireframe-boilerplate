@@ -673,6 +673,7 @@ ol li:last-child::before {
 /* Sub menu */
 
 .menu--sub .menu__list-item--has-children > .menu__item::after,
+.menu--sub .menu__list-item--has-children > .menu__item--parent::after,
 .menu--sub .menu__list-item--has-children > .menu__item--current::after {
     content: '';
     width: .5rem;
@@ -688,12 +689,14 @@ ol li:last-child::before {
     transform: rotate(45deg);
 }
 
+.menu--sub .menu__list-item--has-children > .menu__item--parent::after,
 .menu--sub .menu__list-item--has-children > .menu__item--current::after,
 .menu--sub .menu__list-item--parent > .menu__item::after {
     border-color: #fff;
     transform: rotate(135deg);
 }
 
+.menu--sub .menu__list-item--has-children > .menu__item--parent::after {
 .menu--sub .menu__list-item--has-children > .menu__item--current::after {
     border-color: #000;
 }
