@@ -191,11 +191,6 @@ a {
     text-decoration: underline;
 }
 
-a:hover,
-a:focus {
-    color: var(--link-color-hover);
-}
-
 a:visited {
     color: var(--link-color-visited);
 }
