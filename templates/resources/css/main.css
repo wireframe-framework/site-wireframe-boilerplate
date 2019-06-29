@@ -696,7 +696,7 @@ ol li:last-child::before {
     transform: rotate(135deg);
 }
 
-.menu--sub .menu__list-item--has-children > .menu__item--parent::after {
+.menu--sub .menu__list-item--has-children > .menu__item--parent::after,
 .menu--sub .menu__list-item--has-children > .menu__item--current::after {
     border-color: #000;
 }
