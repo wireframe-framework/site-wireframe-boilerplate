@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.4] - 2019-06-29
+
+### Changed
+- Changed highlights field heading level from h3 to h2 (a11y).
+- Minor style improvements to aside section highlights field headings.
+
 ## [0.6.3] - 2019-06-29
 
 ### Fixed
@@ -67,7 +73,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added utility CSS class 'visually-hidden'.
 
 ### Changed
-- Changed header background to new dark blue color (a11n).
+- Changed header background to new dark blue color (a11y).
 
 ## [0.4.0] - 2019-06-23
 

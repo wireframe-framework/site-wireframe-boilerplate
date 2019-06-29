@@ -5,7 +5,7 @@
                 <?php if ($highlight->icon): ?>
                     <i class="highlights__icon fas fa-<?= $highlight->icon ?>"></i>
                 <?php endif; ?>
-                <h3 class="highlights__headline"><?= $highlight->title ?></h3>
+                <h2 class="highlights__headline"><?= $highlight->title ?></h2>
                 <?= $highlight->summary ?>
             </div>
         <?php endforeach; ?>
