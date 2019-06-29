@@ -42,7 +42,7 @@
             <?php if ($home->logo): ?>
                 <img src="<?= $home->logo->maxSize(480, 240)->url ?>" alt="<?= $home->logo->description ?>">
             <?php else: ?>
-                <i class="fas fa-layer-group"></i> <?= $site_name ?>
+                <i class="fas fa-layer-group" aria-hidden="true"></i> <?= $site_name ?>
             <?php endif; ?>
         </a>
 
