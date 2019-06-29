@@ -831,9 +831,13 @@ ol li:last-child::before {
     margin: var(--layout-spacing-quarter) 0;
 }
 
+.highlights__headline {
+    font-size: 1.75rem;
+    margin-top: var(--layout-spacing-half);
+}
+
 aside .highlights__headline {
     font-size: 1.5rem;
-    margin-top: var(--layout-spacing-half);
 }
 
 @media screen and (min-width: 64em) {
