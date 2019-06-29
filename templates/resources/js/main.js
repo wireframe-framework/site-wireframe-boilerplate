@@ -9,13 +9,6 @@ if (!(window.CSS && window.CSS.supports && window.CSS.supports('--fake-var', 0))
     });
 }
 
-// Initialize highlight.js
-document.addEventListener('DOMContentLoaded', function(event) {
-    document.querySelectorAll('pre code').forEach(function(block) {
-        hljs.highlightBlock(block);
-    });
-});
-
 // Mobile menu toggle keyboard support
 document.querySelectorAll('.menu-toggle-label').forEach(function(toggleLabel) {
     toggleLabel.addEventListener('keydown', function(event) {
@@ -47,7 +40,15 @@ const submenuIDPrefix = 'js-toggle-menu--';
 const submenuToggleClass = 'menu__item__toggle';
 const submenuToggleIconClass = 'fas';
 
-// Helper function for displaying or hiding submenu
+/**
+ * Helper function for displaying or hiding a submenu.
+ *
+ * @param {object} submenu
+ * @param {object} submenuToggle
+ * @param {string} submenuToggleText
+ * @param {object} submenuToggleIcon
+ * @param {bool} hiddenState
+ */
 function toggleSubmenu(submenu, submenuToggle, submenuToggleText, submenuToggleIcon, hiddenState) {
     submenu.hidden = hiddenState;
     submenuToggle.setAttribute('aria-expanded', !submenu.hidden);
@@ -96,3 +97,10 @@ document.querySelectorAll(menuItemSelector).forEach(function(menuItem, index) {
     menuItem.parentNode.insertBefore(submenuToggle, menuItem.nextSibling);
 });
 
+// To top button visibility
+const topLink = document.getElementById('top-link');
+if (topLink) {
+    window.addEventListener("scroll", function() {
+        this.style.display = window.scrollY > 1024 ? 'inline-block' : 'none';
+    }.bind(topLink));
+}
