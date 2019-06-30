@@ -11,7 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Custom configuration file added to the lib directory.
 
 ### Changed
-- Moved MarkupMenu configuration settings to custom config file and made "Current page" text translatable.
+- Moved MarkupMenu configuration settings to custom config file and made "Current page" label translatable.
+- Bumped required versions of wireframe-framework/processwire-composer-installer, teppokoivula/markup-menu, and wireframe-framework/wireframe.
+- Composer requirements modified so that wireframe-framework/processwire-composer-installer is prioritized.
 
 ## [0.6.5] - 2019-06-29
 
