@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Custom configuration file added to the lib directory.
+
+### Changed
+- Moved MarkupMenu configuration settings to custom config file and made "Current page" text translatable.
+
 ## [0.6.5] - 2019-06-29
 
 ### Fixed
