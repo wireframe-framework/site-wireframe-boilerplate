@@ -15,6 +15,9 @@
 $wireframe = $modules->get('Wireframe');
 $wireframe->init();
 
+// include site config settings
+require_once 'lib/config.php';
+
 // include common functions
 require_once 'lib/functions.php';
 
