@@ -72,6 +72,73 @@ td, th {
     --link-color-visited: #551a8b;
 }
 
+/* Content images */
+
+figure {
+    display: table;
+}
+
+figure img {
+    display: table-cell;
+}
+
+figure figcaption {
+    display: table-caption;
+    font-size: 0.9rem;
+    caption-side: bottom;
+    padding: 1rem 1rem 0 1rem;
+}
+
+img.align_left,
+img.align_right {
+    display: block;
+}
+
+figure,
+img.align_left,
+img.align_right {
+    margin: 1.5rem 0;
+}
+
+@media screen and (min-width: 64em) {
+    figure,
+    img.align_left,
+    img.align_right {
+        margin: 0;
+    }
+    img.align_left {
+        float: left;
+        clear: none;
+        margin: 0.75rem 3rem 1.25rem 0;
+    }
+    figure.align_right,
+    img.align_right {
+        float: right;
+        clear: none;
+        margin: 0.75rem 0 1.25rem 3rem;
+    }
+    figure.align_center {
+        margin: 2.75rem auto;
+    }
+}
+
+/* Content tables */
+
+table {
+    margin-bottom: var(--layout-spacing-third);
+}
+
+th,
+td {
+    padding: .5rem;
+    font-size: .9rem;
+}
+
+th {
+    font-weight: bold;
+    background: var(--site-color-light-gray);
+}
+
 /* Utils */
 
 .visually-hidden {
@@ -280,6 +347,13 @@ main p {
         font-size: 4rem;
         margin: var(--layout-spacing-quarter) 0 var(--layout-spacing-half);
     }
+}
+
+hr {
+    border: 0;
+    height: 0.0625rem;
+    margin: 1.5rem 0;
+    background: var(--site-color-gray);
 }
 
 /* List styles */
