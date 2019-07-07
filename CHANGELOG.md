@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0] - 2019-07-07
+
+### Changed
+- Updated required version of Wireframe to 0.4.0.
+
+### Removed
+- Removed lib/functions.php, as it wasn't really needed.
+
 ## [0.8.0] - 2019-07-03
 
 ### Added
