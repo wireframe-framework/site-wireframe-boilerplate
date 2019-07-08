@@ -139,6 +139,37 @@ th {
     background: var(--site-color-light-gray);
 }
 
+/* Blockquotes */
+
+blockquote {
+    padding: 1rem 1rem .1rem 4rem;
+    border: .125rem solid var(--site-color-light-gray);
+    font-family: Times, serif;
+    margin: 3rem 0 2rem;
+    border-left: 0;
+    border-right: 0;
+    position: relative;
+}
+
+blockquote::before {
+    content: open-quote;
+    font-size: 4rem;
+    position: absolute;
+    left: 1rem;
+    top: 2rem;
+    line-height: 1rem;
+}
+
+blockquote p:first-child {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+blockquote strong {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
 /* Utils */
 
 .visually-hidden {
