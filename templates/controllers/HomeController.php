@@ -20,7 +20,7 @@ class HomeController extends \Wireframe\Controller {
         // json.php (/site/templates/views/scripts/home/json.php) view script,
         // and without any layout file (we don't want "frames" for this view).
         if ($this->input->urlSegment1 === 'data.json') {
-            $this->view->setLayout(null)->setScript('json');
+            $this->view->setLayout(null)->setView('json');
         }
     }
 
