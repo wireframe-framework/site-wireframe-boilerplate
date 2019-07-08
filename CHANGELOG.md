@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.9.1] - 2019-07-08
 
 ### Fixed
-- Fixed a reference to renamed method Controller::setScript() (now Controller::setView()).
+- Fixed a reference to renamed method View::setScript() (now View::setView()).
 
 ## [0.9.0] - 2019-07-07
 
