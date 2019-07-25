@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.0] - 2019-07-25
+
 ### Added
 - SearchEngine module, Search template, and controller and view for the Search template.
 - Blockquote CSS styles.
