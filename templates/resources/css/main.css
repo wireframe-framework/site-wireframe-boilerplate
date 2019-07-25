@@ -229,6 +229,10 @@ main {
     overflow-wrap: break-word;
 }
 
+#content {
+    width: 100%;
+}
+
 @media screen and (min-width: 64em) {
     main {
         display: flex;
