@@ -8,7 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Blockquote styles.
+- SearchEngine module, Search template, and controller and view for the Search template.
+- Blockquote CSS styles.
+
+### Fixed
+- Fixed minor layout issue resulting from main content area being less than 100% wide.
 
 ## [0.9.1] - 2019-07-08
 
