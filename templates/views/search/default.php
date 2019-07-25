@@ -1,0 +1,2 @@
+<?= $page->main ?>
+<?= $this->search ?>
