@@ -1,4 +1,4 @@
-# --- WireDatabaseBackup {"time":"2019-06-01 20:08:43","user":"","dbName":"wireframe_boilerplate","description":"","tables":[],"excludeTables":["pages_drafts","pages_roles","permissions","roles","roles_permissions","users","users_roles","user","role","permission"],"excludeCreateTables":[],"excludeExportTables":["field_roles","field_permissions","field_email","field_pass","caches","session_login_throttle","page_path_history"]}
+# --- WireDatabaseBackup {"time":"2019-07-25 22:46:13","user":"","dbName":"wireframe_boilerplate","description":"","tables":[],"excludeTables":["pages_drafts","pages_roles","permissions","roles","roles_permissions","users","users_roles","user","role","permission"],"excludeCreateTables":[],"excludeExportTables":["field_roles","field_permissions","field_email","field_pass","caches","session_login_throttle","page_path_history"]}
 
 DROP TABLE IF EXISTS `caches`;
 CREATE TABLE `caches` (
@@ -339,6 +339,24 @@ CREATE TABLE `field_roles` (
   KEY `data` (`data`,`pages_id`,`sort`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `field_search_index`;
+CREATE TABLE `field_search_index` (
+  `pages_id` int(10) unsigned NOT NULL,
+  `data` mediumtext NOT NULL,
+  PRIMARY KEY (`pages_id`),
+  KEY `data_exact` (`data`(250)),
+  FULLTEXT KEY `data` (`data`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT INTO `field_search_index` (`pages_id`, `data`) VALUES('1074', 'Search ');
+INSERT INTO `field_search_index` (`pages_id`, `data`) VALUES('1', 'Home What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non justo ultrices Donec non justo ultrices, venenatis est nec, facilisis magna. Maecenas sollicitudin augue Maecenas sollicitudin augue in justo interdum, vel consequat nunc imperdiet. Nullam accumsan lacus eu lacus vehicula? Nullam accumsan lacus eu lacus vehicula, consectetur vestibulum eros sollicitudin. Donec ultricies urna vel purus convallis hendrerit. Morbi convallis finibus rutrum. Ut ultrices felis non molestie dignissim. Cras laoreet orci eget magna condimentum, vel feugiat elit sagittis. Learn more about Lorem Ipsum Lorem Ipsum – dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non justo ultrices, venenatis est nec, facilisis magna. Maecenas sollicitudin augue in justo interdum, vel consequat nunc imperdiet. Nullam accumsan lacus eu lacus vehicula, consectetur vestibulum eros sollicitudin. Donec ultricies urna vel purus convallis hendrerit. Morbi convallis finibus rutrum. Ut ultrices felis non molestie dignissim. Cras laoreet orci eget magna condimentum, vel feugiat elit sagittis. Pellentesque Pellentesque vehicula tellus vel ex dapibus pulvinar. Curabitur eu vestibulum augue. Proin non neque erat. Suspendisse elit mauris, fermentum quis ultricies convallis. Nam pharetra Nam pharetra in elit sit amet vestibulum. Ut scelerisque malesuada orci, eget pellentesque felis finibus sed. Nulla vel mi ac erat venenatis. Website © 2019 Lorem Ipsum – dolor sit amet, consectetur adipiscing elit Lorem Ipsum is Open Source, licensed under Mozilla Public License v2.0 link:/about/ link:http://mozilla.org/MPL/2.0/');
+INSERT INTO `field_search_index` (`pages_id`, `data`) VALUES('1041', 'Why use Lorem Ipsum? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non justo ultrices, venenatis est nec, facilisis magna. Maecenas sollicitudin augue in justo interdum, vel consequat nunc imperdiet. Nullam accumsan lacus eu lacus vehicula, consectetur vestibulum eros sollicitudin. Donec ultricies urna vel purus convallis hendrerit! Morbi convallis finibus rutrum. Ut ultrices felis non molestie dignissim. Cras laoreet orci eget magna condimentum, vel feugiat elit sagittis. Pellentesque vehicula tellus vel ex dapibus pulvinar. Curabitur eu vestibulum augue. Proin non neque erat. Suspendisse elit mauris, fermentum quis ultricies convallis, convallis eget massa. Vestibulum eu aliquet tortor. Quisque dictum dolor faucibus, dictum augue sit amet, semper massa. Etiam ac nulla pellentesque, tincidunt dui nec, sodales velit. Mauris ac risus et justo posuere congue quis vitae nisl. Praesent consectetur volutpat tempor. Donec tellus massa, condimentum sed rhoncus eget, suscipit ut mauris. Curabitur pharetra at nibh tempus sodales. Donec molestie arcu ac vulputate faucibus. Donec ac imperdiet elit, eu sollicitudin nisl. Sed molestie vulputate neque eget aliquam. ');
+INSERT INTO `field_search_index` (`pages_id`, `data`) VALUES('1042', 'Lorem Ipsum vs. dolor sit amet Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non justo ultrices, venenatis est nec, facilisis magna. Maecenas sollicitudin augue in justo interdum.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non justo ultrices, venenatis est nec, facilisis magna. Maecenas sollicitudin augue in justo interdum, vel consequat nunc imperdiet. Donec ultricies urna vel purus.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non justo ultrices, venenatis est nec, facilisis magna. Maecenas sollicitudin augue in justo interdum, vel consequat nunc imperdiet. Ut ultrices felis non molestie dignissim.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non justo ultrices, venenatis est nec, facilisis magna. Maecenas sollicitudin augue in justo interdum, vel consequat nunc imperdiet. ');
+INSERT INTO `field_search_index` (`pages_id`, `data`) VALUES('1038', 'About About Lorem Ipsum Nunc vel nunc imperdiet, congue est vel, pretium turpis. In tempus massa ac erat hendrerit convallis. Ut fringilla id odio vitae facilisis? Lorem ipsum dolor sit amet, consectetur adipiscing elit Proin eget purus ex. Curabitur commodo massa convallis urna fermentum, id consequat lectus consectetur. Ut id nisl gravida, finibus urna eget, dapibus est. Suspendisse a pulvinar lorem, eu eleifend arcu. Etiam eget nisi blandit, tincidunt purus at, feugiat erat. Curabitur ac massa nisl. Fusce a feugiat neque, sit amet porta mi. Cras neque sem, convallis et dui ac, laoreet laoreet risus. Aenean scelerisque risus ligula, ac lacinia sem blandit tempus. Etiam commodo arcu ac leo malesuada consectetur Curabitur elementum purus at dignissim elementum. Maecenas sagittis erat vel urna posuere, vel pretium velit elementum. Nunc quis risus enim. Cras ornare lorem sed gravida malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce volutpat eget ante at elementum. Aliquam a dolor non justo varius pharetra. Quisque at condimentum dolor. Cras et fringilla lorem, porta aliquam felis Etiam malesuada tincidunt neque, id vestibulum sem maximus a. Nam rutrum, sem eu luctus lobortis, magna lorem hendrerit sapien, at vulputate eros sapien in urna. Aliquam porta urna at felis eleifend, sit amet volutpat urna cursus. Nunc et semper metus, in imperdiet leo. Praesent vulputate magna elementum mi viverra congue. Etiam sit amet risus tristique, consequat elit quis, pharetra felis. Nam fermentum nisl at placerat hendrerit Ut et felis massa. Proin lobortis eget ex at lobortis. Duis vehicula et lacus vitae ornare. In hac habitasse platea dictumst. Curabitur congue scelerisque viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat. /site/​templates/​lorem-ipsum.php ```php &lt;?php namespace ProcessWire;    // Say hello to the world echo \"Hello World!\"; ``` ');
+INSERT INTO `field_search_index` (`pages_id`, `data`) VALUES('1019', 'Getting started Donec non justo ultrices, venenatis est nec, facilisis magna. Maecenas sollicitudin augue in justo interdum, vel consequat nunc imperdiet. Nullam accumsan lacus eu lacus vehicula, consectetur vestibulum eros sollicitudin. Donec ultricies urna vel purus convallis hendrerit. Lorem ipsum dolor sit amet Morbi convallis finibus rutrum. Ut ultrices felis non molestie dignissim. Cras laoreet orci eget magna condimentum, vel feugiat elit sagittis. Consectetur adipiscing elit Pellentesque vehicula tellus vel ex dapibus pulvinar. Curabitur eu vestibulum augue. Proin non neque erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit Morbi convallis finibus rutrum. Ut ultrices felis non molestie dignissim. Cras laoreet orci eget magna condimentum, vel feugiat elit sagittis. Pellentesque vehicula tellus vel ex dapibus pulvinar. Curabitur eu vestibulum augue. Proin non neque erat. Suspendisse elit mauris, fermentum quis ultricies convallis, convallis eget massa. Vestibulum eu aliquet tortor. Quisque dictum dolor faucibus, dictum augue sit amet, semper massa. Etiam ac nulla pellentesque, tincidunt dui nec, sodales velit. Mauris ac risus et justo posuere congue quis vitae nisl. Praesent consectetur volutpat tempor. Donec tellus massa, condimentum sed rhoncus eget, suscipit ut mauris. Curabitur pharetra at nibh tempus sodales. Donec molestie arcu ac vulputate faucibus. Donec ac imperdiet elit, eu sollicitudin nisl. Sed molestie vulputate neque eget aliquam. Nam pharetra in elit sit amet vestibulum. Ut scelerisque malesuada orci, eget pellentesque felis finibus sed. Nulla vel mi ac erat venenatis mattis quis sit amet tellus. Ut eget est vel libero cursus maximus. Sed diam quam, malesuada a lorem ut, elementum efficitur lectus. Curabitur egestas sem quis turpis pharetra hendrerit. Aenean sed varius nunc. Vivamus suscipit tincidunt augue nec laoreet. Aliquam imperdiet accumsan egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam imperdiet facilisis vestibulum. In eleifend lorem sed nisl euismod, at bibendum orci rutrum. Aliquam nibh nisl, ultrices molestie accumsan id, imperdiet ullamcorper dui. Duis non tellus vestibulum, posuere diam eu, rhoncus quam. Quisque facilisis tempus lorem, a faucibus neque tincidunt eu. Sed tortor quam, maximus ultrices pellentesque sed, rutrum et orci.   ');
+INSERT INTO `field_search_index` (`pages_id`, `data`) VALUES('1063', 'Docs Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non justo ultrices, venenatis est nec, facilisis magna. Maecenas sollicitudin augue in justo interdum, vel consequat nunc imperdiet. Nullam accumsan lacus eu lacus vehicula, consectetur vestibulum eros sollicitudin. Donec ultricies urna vel purus convallis hendrerit. Morbi convallis finibus rutrum. Ut ultrices felis non molestie dignissim. Cras laoreet orci eget magna condimentum, vel feugiat elit sagittis. Pellentesque vehicula tellus vel ex dapibus pulvinar Pellentesque vehicula tellus vel ex dapibus pulvinar. Curabitur eu vestibulum augue. Proin non neque erat. Suspendisse elit mauris, fermentum quis ultricies convallis, convallis eget massa. Vestibulum eu aliquet tortor. Quisque dictum dolor faucibus, dictum augue sit amet, semper massa. Etiam ac nulla pellentesque, tincidunt dui nec, sodales velit. Mauris ac risus et justo posuere congue quis vitae nisl Mauris ac risus et justo posuere congue quis vitae nisl. Praesent consectetur volutpat tempor. Donec tellus massa, condimentum sed rhoncus eget, suscipit ut mauris. Curabitur pharetra at nibh tempus sodales. Donec molestie arcu ac vulputate faucibus. Donec ac imperdiet elit, eu sollicitudin nisl. Sed molestie vulputate neque eget aliquam. Nam pharetra in elit sit amet vestibulum Nam pharetra in elit sit amet vestibulum. Ut scelerisque malesuada orci, eget pellentesque felis finibus sed. Nulla vel mi ac erat venenatis mattis quis sit amet tellus. Ut eget est vel libero cursus maximus. Sed diam quam, malesuada a lorem ut, elementum efficitur lectus. Curabitur egestas sem quis turpis pharetra hendrerit. Aenean sed varius nunc. Vivamus suscipit tincidunt augue nec laoreet. Aliquam imperdiet accumsan egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam imperdiet facilisis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non justo ultrices, venenatis est nec, facilisis magna. In eleifend lorem sed nisl euismod, at bibendum orci rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non justo ultrices, venenatis est nec, facilisis magna. Aliquam nibh nisl, ultrices molestie accumsan id, imperdiet ullamcorper dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non justo ultrices, venenatis est nec, facilisis magna. Duis non tellus vestibulum, posuere diam eu, rhoncus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non justo ultrices, venenatis est nec, facilisis magna. Quisque facilisis tempus lorem, a faucibus neque tincidunt eu. Sed tortor quam, maximus ultrices pellentesque sed, rutrum et orci. ');
+INSERT INTO `field_search_index` (`pages_id`, `data`) VALUES('27', '404 Not Found Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget purus ex. Curabitur commodo massa convallis urna fermentum, id consequat lectus consectetur. Ut id nisl gravida, finibus urna eget, dapibus est. Suspendisse a pulvinar lorem, eu eleifend arcu. Etiam eget nisi blandit, tincidunt purus at, feugiat erat. ');
+
 DROP TABLE IF EXISTS `field_summary`;
 CREATE TABLE `field_summary` (
   `pages_id` int(10) unsigned NOT NULL,
@@ -426,6 +444,7 @@ INSERT INTO `field_title` (`pages_id`, `data`) VALUES('1045', 'output-framework-
 INSERT INTO `field_title` (`pages_id`, `data`) VALUES('1046', 'why-use-wireframe');
 INSERT INTO `field_title` (`pages_id`, `data`) VALUES('1047', 'about');
 INSERT INTO `field_title` (`pages_id`, `data`) VALUES('1063', 'Docs');
+INSERT INTO `field_title` (`pages_id`, `data`) VALUES('1074', 'Search');
 
 DROP TABLE IF EXISTS `fieldgroups`;
 CREATE TABLE `fieldgroups` (
@@ -433,7 +452,7 @@ CREATE TABLE `fieldgroups` (
   `name` varchar(250) CHARACTER SET ascii NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 INSERT INTO `fieldgroups` (`id`, `name`) VALUES('2', 'admin');
 INSERT INTO `fieldgroups` (`id`, `name`) VALUES('3', 'user');
@@ -443,6 +462,7 @@ INSERT INTO `fieldgroups` (`id`, `name`) VALUES('1', 'home');
 INSERT INTO `fieldgroups` (`id`, `name`) VALUES('83', 'basic-page');
 INSERT INTO `fieldgroups` (`id`, `name`) VALUES('98', 'repeater_highlights');
 INSERT INTO `fieldgroups` (`id`, `name`) VALUES('99', 'wide-basic-page');
+INSERT INTO `fieldgroups` (`id`, `name`) VALUES('100', 'search');
 
 DROP TABLE IF EXISTS `fieldgroups_fields`;
 CREATE TABLE `fieldgroups_fields` (
@@ -453,29 +473,28 @@ CREATE TABLE `fieldgroups_fields` (
   PRIMARY KEY (`fieldgroups_id`,`fields_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('2', '2', '1', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('2', '1', '0', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('3', '3', '0', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('3', '97', '3', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('3', '4', '2', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('4', '5', '0', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('5', '1', '0', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('3', '92', '1', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('3', '97', '3', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('83', '102', '13', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '115', '20', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '111', '19', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('3', '3', '0', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('83', '123', '13', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '115', '21', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '111', '20', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('83', '108', '12', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('83', '107', '11', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '110', '18', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '116', '17', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '113', '16', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '102', '15', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '110', '19', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '116', '18', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '113', '17', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '102', '16', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '123', '15', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '108', '14', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '107', '13', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '120', '12', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '101', '11', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '104', '10', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '106', '9', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('83', '120', '10', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('83', '101', '9', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('83', '104', '8', NULL);
@@ -485,6 +504,7 @@ INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`)
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('83', '98', '4', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('83', '121', '3', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('83', '99', '2', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '106', '9', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '105', '8', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '103', '7', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '118', '6', NULL);
@@ -493,26 +513,43 @@ INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`)
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '121', '3', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '99', '2', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '100', '1', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '1', '0', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('83', '100', '1', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '114', '21', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '1', '0', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('98', '99', '1', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('98', '1', '0', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('98', '122', '2', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('83', '1', '0', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '102', '12', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '108', '11', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '107', '10', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '120', '9', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '101', '8', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '104', '7', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '106', '6', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '105', '5', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '103', '4', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '98', '3', NULL);
-INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '99', '2', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '100', '1', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '1', '0', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '106', '6', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '99', '2', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '98', '3', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '103', '4', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '105', '5', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('2', '2', '1', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('83', '102', '14', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '114', '22', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('98', '122', '2', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '101', '8', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '120', '9', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '107', '10', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '108', '11', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '123', '12', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('99', '102', '13', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '1', '0', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '100', '1', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '99', '2', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '98', '3', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '103', '4', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '105', '5', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '106', '6', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '104', '7', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '101', '8', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '120', '9', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '107', '10', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '108', '11', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '123', '12', NULL);
+INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('100', '102', '13', NULL);
 
 DROP TABLE IF EXISTS `fields`;
 CREATE TABLE `fields` (
@@ -525,7 +562,7 @@ CREATE TABLE `fields` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `type` (`type`)
-) ENGINE=MyISAM AUTO_INCREMENT=123 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
 
 INSERT INTO `fields` (`id`, `type`, `name`, `flags`, `label`, `data`) VALUES('1', 'FieldtypePageTitle', 'title', '13', 'Title', '{\"required\":1,\"textformatters\":[\"TextformatterEntities\"],\"size\":0,\"maxlength\":255}');
 INSERT INTO `fields` (`id`, `type`, `name`, `flags`, `label`, `data`) VALUES('2', 'FieldtypeModule', 'process', '25', 'Process', '{\"description\":\"The process that is executed on this page. Since this is mostly used by ProcessWire internally, it is recommended that you don\'t change the value of this unless adding your own pages in the admin.\",\"collapsed\":1,\"required\":1,\"moduleTypes\":[\"Process\"],\"permanent\":1}');
@@ -556,6 +593,7 @@ INSERT INTO `fields` (`id`, `type`, `name`, `flags`, `label`, `data`) VALUES('11
 INSERT INTO `fields` (`id`, `type`, `name`, `flags`, `label`, `data`) VALUES('120', 'FieldtypeText', 'meta_title', '0', 'Title', '{\"description\":\"If defined, the value of this field is placed in the <title> tag of the page.\",\"textformatters\":[\"TextformatterEntities\"],\"collapsed\":0,\"minlength\":0,\"maxlength\":2048,\"showCount\":0,\"size\":0}');
 INSERT INTO `fields` (`id`, `type`, `name`, `flags`, `label`, `data`) VALUES('121', 'FieldtypeRepeater', 'highlights', '0', 'Highlights', '{\"template_id\":44,\"parent_id\":1029,\"repeaterAddLabel\":\"Add New Highlight\",\"repeaterCollapse\":0,\"repeaterLoading\":1,\"collapsed\":0,\"repeaterFields\":[1,99,122]}');
 INSERT INTO `fields` (`id`, `type`, `name`, `flags`, `label`, `data`) VALUES('122', 'FieldtypeText', 'icon', '0', 'Icon', '{\"description\":\"Provide an icon name from https:\\/\\/fontawesome.com\\/icons, without a prefix.\",\"notes\":\"Example: accessible-icon\",\"textformatters\":[\"TextformatterEntities\"],\"collapsed\":0,\"minlength\":0,\"maxlength\":2048,\"showCount\":0,\"size\":0}');
+INSERT INTO `fields` (`id`, `type`, `name`, `flags`, `label`, `data`) VALUES('123', 'FieldtypeTextarea', 'search_index', '0', '', '{\"collapsed\":4,\"inputfieldClass\":\"InputfieldTextarea\",\"contentType\":0,\"minlength\":0,\"maxlength\":0,\"showCount\":0,\"rows\":5}');
 
 DROP TABLE IF EXISTS `modules`;
 CREATE TABLE `modules` (
@@ -566,7 +604,7 @@ CREATE TABLE `modules` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `class` (`class`)
-) ENGINE=MyISAM AUTO_INCREMENT=189 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=197 DEFAULT CHARSET=utf8;
 
 INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('1', 'FieldtypeTextarea', '1', '', '2019-01-03 21:34:17');
 INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('2', 'FieldtypeNumber', '0', '', '2019-01-03 21:34:17');
@@ -666,6 +704,13 @@ INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('169', 
 INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('170', 'MarkupSimpleNavigation', '0', '', '2019-01-14 19:31:57');
 INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('171', 'TextformatterCodeBlocks', '1', '', '2019-01-15 07:58:48');
 INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('172', 'PageFrontEdit', '2', '{\"inlineEditFields\":[110,111,115,100,117,98,118,99],\"inlineLimitPage\":\"1\",\"buttonLocation\":\"auto\",\"buttonType\":\"auto\",\"uninstall\":\"\",\"submit_save_module\":\"Submit\"}', '2019-01-20 18:43:27');
+INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('189', 'MarkupMenu', '0', '', '2019-06-23 20:08:58');
+INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('190', 'SeoMaestro', '3', '{\"sitemapEnable\":1,\"sitemapPath\":\"sitemap.xml\",\"sitemapCache\":\"120\",\"baseUrl\":\"\",\"defaultLanguage\":\"en\",\"uninstall\":\"\",\"submit_save_module\":\"Submit\"}', '2019-06-30 22:00:02');
+INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('191', 'FieldtypeSeoMaestro', '1', '', '2019-06-30 22:00:02');
+INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('192', 'InputfieldSeoMaestro', '0', '', '2019-06-30 22:00:02');
+INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('193', 'FieldtypeMapMarker', '1', '', '2019-07-11 18:25:33');
+INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('194', 'InputfieldMapMarker', '0', '', '2019-07-11 18:25:33');
+INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('195', 'SearchEngine', '3', '{\"indexed_fields\":[\"title\",\"headline\",\"summary\",\"main\",\"left\",\"right\",\"footer_1\",\"footer_2\",\"footer_3\",\"highlights\",\"images\",\"files\",\"meta_description\",\"meta_keywords\",\"meta_title\"],\"index_pages_now_selector\":\"\",\"index_field\":\"search_index\",\"override_compatible_fieldtypes\":\"\",\"compatible_fieldtypes\":[\"FieldtypeEmail\",\"FieldtypeDatetime\",\"FieldtypeText\",\"FieldtypeTextLanguage\",\"FieldtypeTextarea\",\"FieldtypeTextareaLanguage\",\"FieldtypePageTitle\",\"FieldtypePageTitleLanguage\",\"FieldtypeCheckbox\",\"FieldtypeInteger\",\"FieldtypeFloat\",\"FieldtypeURL\",\"FieldtypeModule\",\"FieldtypeFile\",\"FieldtypeImage\",\"FieldtypeSelector\",\"FieldtypeOptions\",\"FieldtypeRepeater\",\"FieldtypeRepeaterMatrix\",\"FieldtypePageTable\"],\"uninstall\":\"\",\"submit_save_module\":\"Submit\"}', '2019-07-25 22:40:04');
 
 DROP TABLE IF EXISTS `pages`;
 CREATE TABLE `pages` (
@@ -688,10 +733,10 @@ CREATE TABLE `pages` (
   KEY `created` (`created`),
   KEY `status` (`status`),
   KEY `published` (`published`)
-) ENGINE=MyISAM AUTO_INCREMENT=1074 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1076 DEFAULT CHARSET=utf8;
 
-INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1', '0', '1', 'home', '9', '2019-05-30 17:46:32', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '0');
-INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('2', '1', '2', 'processwire', '1035', '2019-05-30 17:12:55', '40', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '7');
+INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1', '0', '1', 'home', '9', '2019-07-25 22:43:42', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '0');
+INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('2', '1', '2', 'processwire', '1035', '2019-06-23 20:08:54', '40', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '7');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('3', '2', '2', 'page', '21', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '0');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('6', '3', '2', 'add', '21', '2019-01-03 21:35:00', '40', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '1');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('7', '1', '2', 'trash', '1039', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '8');
@@ -703,7 +748,7 @@ INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modif
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('21', '2', '2', 'module', '21', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '2');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('22', '2', '2', 'setup', '21', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '1');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('23', '2', '2', 'login', '1035', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '4');
-INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('27', '1', '45', 'http404', '1035', '2019-05-30 17:42:32', '41', '2019-01-03 21:34:17', '3', '2019-01-03 21:34:17', '6');
+INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('27', '1', '45', 'http404', '1035', '2019-07-25 22:43:42', '41', '2019-01-03 21:34:17', '3', '2019-01-03 21:34:17', '6');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('28', '2', '2', 'access', '13', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '3');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('29', '28', '2', 'users', '29', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '0');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('30', '28', '2', 'roles', '29', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '1');
@@ -714,7 +759,7 @@ INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modif
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('36', '31', '5', 'page-view', '25', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '0');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('37', '30', '4', 'guest', '25', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '0');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('38', '30', '4', 'superuser', '25', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '1');
-INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('41', '29', '3', 'admin', '1', '2019-05-30 17:12:55', '40', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '0');
+INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('41', '29', '3', 'admin', '1', '2019-06-23 20:08:54', '40', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '0');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('40', '29', '3', 'guest', '25', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '2', '2019-01-03 21:34:17', '1');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('50', '31', '5', 'page-sort', '25', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '5');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('51', '31', '5', 'page-template', '25', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '41', '2019-01-03 21:34:17', '6');
@@ -734,7 +779,7 @@ INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modif
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1013', '31', '5', 'logs-view', '1', '2019-01-03 21:34:51', '40', '2019-01-03 21:34:51', '40', '2019-01-03 21:34:51', '11');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1014', '31', '5', 'logs-edit', '1', '2019-01-03 21:34:51', '40', '2019-01-03 21:34:51', '40', '2019-01-03 21:34:51', '12');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1015', '2', '2', 'repeaters', '1036', '2019-01-05 21:06:39', '41', '2019-01-05 21:06:39', '41', '2019-01-05 21:06:39', '6');
-INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1019', '1', '29', 'getting-started', '1', '2019-05-30 17:30:53', '41', '2019-01-13 20:17:17', '41', '2019-01-13 20:17:20', '4');
+INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1019', '1', '29', 'getting-started', '1', '2019-07-25 22:43:42', '41', '2019-01-13 20:17:17', '41', '2019-01-13 20:17:20', '4');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1028', '31', '5', 'page-edit-front', '1', '2019-01-20 18:43:27', '41', '2019-01-20 18:43:27', '41', '2019-01-20 18:43:27', '13');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1029', '1015', '2', 'for-field-121', '17', '2019-02-10 17:58:07', '41', '2019-02-10 17:58:07', '41', '2019-02-10 17:58:07', '0');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1030', '1029', '2', 'for-page-1', '17', '2019-02-10 17:59:51', '41', '2019-02-10 17:59:51', '41', '2019-02-10 17:59:51', '0');
@@ -744,14 +789,15 @@ INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modif
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1034', '1029', '2', 'for-page-1019', '17', '2019-02-10 21:31:45', '41', '2019-02-10 21:31:45', '41', '2019-02-10 21:31:45', '1');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1035', '1034', '44', '1549827110-1015-1', '1', '2019-05-30 17:30:53', '41', '2019-02-10 21:31:50', '41', '2019-02-10 21:37:48', '0');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1036', '1034', '44', '1549827368-6291-1', '1', '2019-05-30 17:30:53', '41', '2019-02-10 21:36:08', '41', '2019-02-10 21:37:48', '1');
-INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1038', '1', '29', 'about', '1', '2019-05-30 17:37:18', '41', '2019-02-10 22:52:54', '41', '2019-02-10 22:53:01', '3');
-INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1041', '1038', '29', 'why-use-lorem-ipsum', '1', '2019-05-30 17:25:24', '41', '2019-05-05 10:59:42', '41', '2019-05-05 11:00:04', '0');
+INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1038', '1', '29', 'about', '1', '2019-07-25 22:43:42', '41', '2019-02-10 22:52:54', '41', '2019-02-10 22:53:01', '3');
+INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1041', '1038', '29', 'why-use-lorem-ipsum', '1', '2019-07-25 22:43:42', '41', '2019-05-05 10:59:42', '41', '2019-05-05 11:00:04', '0');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1040', '1030', '44', '1549834473-0493-1', '1', '2019-05-30 17:21:42', '41', '2019-02-10 23:34:33', '41', '2019-02-10 23:36:15', '3');
-INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1042', '1038', '29', 'lorem-ipsum-vs-dolor-sit-amet', '1', '2019-05-30 17:27:52', '41', '2019-05-05 11:00:22', '41', '2019-05-05 11:00:35', '1');
+INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1042', '1038', '29', 'lorem-ipsum-vs-dolor-sit-amet', '1', '2019-07-25 22:43:42', '41', '2019-05-05 11:00:22', '41', '2019-05-05 11:00:35', '1');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1045', '1029', '2', 'for-page-1042', '17', '2019-05-05 11:01:24', '41', '2019-05-05 11:01:24', '41', '2019-05-05 11:01:24', '4');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1046', '1029', '2', 'for-page-1041', '17', '2019-05-05 11:01:39', '41', '2019-05-05 11:01:39', '41', '2019-05-05 11:01:39', '5');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1047', '1029', '2', 'for-page-1038', '17', '2019-05-05 11:01:50', '41', '2019-05-05 11:01:50', '41', '2019-05-05 11:01:50', '6');
-INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1063', '1', '45', 'docs', '1', '2019-05-30 17:40:27', '41', '2019-05-30 17:29:00', '41', '2019-05-30 17:29:12', '5');
+INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1063', '1', '45', 'docs', '1', '2019-07-25 22:43:42', '41', '2019-05-30 17:29:00', '41', '2019-05-30 17:29:12', '5');
+INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1074', '1', '46', 'search', '1025', '2019-07-25 22:43:42', '41', '2019-07-25 22:43:08', '41', '2019-07-25 22:43:16', '6');
 
 DROP TABLE IF EXISTS `pages_access`;
 CREATE TABLE `pages_access` (
@@ -788,6 +834,7 @@ INSERT INTO `pages_access` (`pages_id`, `templates_id`, `ts`) VALUES('1036', '2'
 INSERT INTO `pages_access` (`pages_id`, `templates_id`, `ts`) VALUES('1038', '1', '2019-02-10 22:52:54');
 INSERT INTO `pages_access` (`pages_id`, `templates_id`, `ts`) VALUES('1040', '2', '2019-02-10 23:34:33');
 INSERT INTO `pages_access` (`pages_id`, `templates_id`, `ts`) VALUES('1063', '1', '2019-05-30 17:29:00');
+INSERT INTO `pages_access` (`pages_id`, `templates_id`, `ts`) VALUES('1074', '1', '2019-07-25 22:43:08');
 
 DROP TABLE IF EXISTS `pages_parents`;
 CREATE TABLE `pages_parents` (
@@ -799,6 +846,7 @@ CREATE TABLE `pages_parents` (
 INSERT INTO `pages_parents` (`pages_id`, `parents_id`) VALUES('2', '1');
 INSERT INTO `pages_parents` (`pages_id`, `parents_id`) VALUES('3', '1');
 INSERT INTO `pages_parents` (`pages_id`, `parents_id`) VALUES('3', '2');
+INSERT INTO `pages_parents` (`pages_id`, `parents_id`) VALUES('7', '1');
 INSERT INTO `pages_parents` (`pages_id`, `parents_id`) VALUES('22', '1');
 INSERT INTO `pages_parents` (`pages_id`, `parents_id`) VALUES('22', '2');
 INSERT INTO `pages_parents` (`pages_id`, `parents_id`) VALUES('28', '1');
@@ -849,17 +897,18 @@ CREATE TABLE `templates` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `fieldgroups_id` (`fieldgroups_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
-INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('2', 'admin', '2', '8', '0', '{\"useRoles\":1,\"parentTemplates\":[2],\"allowPageNum\":1,\"redirectLogin\":23,\"slashUrls\":1,\"noGlobal\":1,\"compile\":3,\"modified\":1559225316,\"ns\":\"ProcessWire\"}');
+INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('2', 'admin', '2', '8', '0', '{\"useRoles\":1,\"parentTemplates\":[2],\"allowPageNum\":1,\"redirectLogin\":23,\"slashUrls\":1,\"noGlobal\":1,\"compile\":3,\"modified\":1561309671,\"ns\":\"ProcessWire\"}');
 INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('3', 'user', '3', '8', '0', '{\"useRoles\":1,\"noChildren\":1,\"parentTemplates\":[2],\"slashUrls\":1,\"pageClass\":\"User\",\"noGlobal\":1,\"noMove\":1,\"noTrash\":1,\"noSettings\":1,\"noChangeTemplate\":1,\"nameContentTab\":1}');
 INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('4', 'role', '4', '8', '0', '{\"noChildren\":1,\"parentTemplates\":[2],\"slashUrls\":1,\"pageClass\":\"Role\",\"noGlobal\":1,\"noMove\":1,\"noTrash\":1,\"noSettings\":1,\"noChangeTemplate\":1,\"nameContentTab\":1}');
 INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('5', 'permission', '5', '8', '0', '{\"noChildren\":1,\"parentTemplates\":[2],\"slashUrls\":1,\"guestSearchable\":1,\"pageClass\":\"Permission\",\"noGlobal\":1,\"noMove\":1,\"noTrash\":1,\"noSettings\":1,\"noChangeTemplate\":1,\"nameContentTab\":1}');
-INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('1', 'home', '1', '0', '0', '{\"useRoles\":1,\"noParents\":1,\"urlSegments\":[\"data.json\"],\"slashUrls\":1,\"slashUrlSegments\":-1,\"altFilename\":\"wireframe\",\"pageLabelField\":\"fa-home title\",\"compile\":3,\"label\":\"Home\",\"modified\":1559225701,\"ns\":\"ProcessWire\",\"roles\":[37]}');
-INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('29', 'basic-page', '83', '0', '0', '{\"slashUrls\":1,\"altFilename\":\"wireframe\",\"pageLabelField\":\"fa-file-o title\",\"compile\":3,\"label\":\"Basic page\",\"modified\":1559225701,\"ns\":\"ProcessWire\"}');
+INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('1', 'home', '1', '0', '0', '{\"useRoles\":1,\"noParents\":1,\"urlSegments\":[\"data.json\"],\"slashUrls\":1,\"slashUrlSegments\":-1,\"altFilename\":\"wireframe\",\"pageLabelField\":\"fa-home title\",\"compile\":3,\"label\":\"Home\",\"modified\":1562518873,\"ns\":\"ProcessWire\",\"roles\":[37]}');
+INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('29', 'basic-page', '83', '0', '0', '{\"slashUrls\":1,\"altFilename\":\"wireframe\",\"pageLabelField\":\"fa-file-o title\",\"compile\":3,\"label\":\"Basic page\",\"modified\":1562518873,\"ns\":\"ProcessWire\"}');
 INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('44', 'repeater_highlights', '98', '8', '0', '{\"noChildren\":1,\"noParents\":1,\"slashUrls\":1,\"pageClass\":\"RepeaterPage\",\"noGlobal\":1,\"compile\":3,\"modified\":1549814287}');
-INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('45', 'wide-basic-page', '99', '0', '0', '{\"slashUrls\":1,\"altFilename\":\"wireframe\",\"pageLabelField\":\"fa-file-word-o title\",\"compile\":3,\"label\":\"Wide basic page\",\"modified\":1559225701,\"ns\":\"ProcessWire\"}');
+INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('45', 'wide-basic-page', '99', '0', '0', '{\"slashUrls\":1,\"altFilename\":\"wireframe\",\"pageLabelField\":\"fa-file-word-o title\",\"compile\":3,\"label\":\"Wide basic page\",\"modified\":1562518873,\"ns\":\"ProcessWire\"}');
+INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('46', 'search', '100', '0', '0', '{\"noChildren\":1,\"noParents\":-1,\"parentTemplates\":[1],\"allowPageNum\":1,\"slashUrls\":1,\"slashPageNum\":1,\"altFilename\":\"wireframe\",\"pageLabelField\":\"fa-search title\",\"noShortcut\":1,\"compile\":3,\"label\":\"Search\",\"modified\":1564083772,\"ns\":\"ProcessWire\"}');
 
 UPDATE pages SET created_users_id=41, modified_users_id=41, created=NOW(), modified=NOW();
 
-# --- /WireDatabaseBackup {"numTables":34,"numCreateTables":40,"numInserts":428,"numSeconds":0}
+# --- /WireDatabaseBackup {"numTables":35,"numCreateTables":41,"numInserts":467,"numSeconds":0}
