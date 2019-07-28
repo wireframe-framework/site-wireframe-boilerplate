@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.1] - 2019-07-28
+
+### Fixed
+- Updated required version of the SearchEngine module in composer.json.
+
 ## [0.11.0] - 2019-07-28
 
 ### Added
