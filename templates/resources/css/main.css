@@ -170,50 +170,6 @@ blockquote strong {
     text-transform: uppercase;
 }
 
-/* Utils */
-
-.visually-hidden {
-    /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
-    position: absolute !important;
-    height: 1px; width: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-}
-
-.visually-hidden a:focus,
-.visually-hidden input:focus,
-.visually-hidden button:focus {
-    position: static;
-    width: auto;
-    height: auto;
-}
-
-.skip-link {
-    padding: 1rem;
-    background: #fff;
-    border-radius: .25rem;
-}
-
-.skip-link:focus {
-    position: fixed !important;
-    clip: unset;
-    width: auto;
-    height: auto;
-    display: inline-block;
-}
-
-#top-link {
-    position: fixed;
-    right: 1rem;
-    bottom: 0;
-    margin: 0;
-    border-radius: .25rem .25rem 0 0;
-}
-
-.js #top-link {
-    display: none;
-}
-
 /* Common */
 
 body {
@@ -525,34 +481,50 @@ ol li:last-child::before {
     color: var(--text-color);
 }
 
-/* Logo */
+/* Masthead */
 
-.logo {
-    display: block;
+.masthead__column {
+    margin: 0 auto;
+    max-width: var(--max-layout-width);
+    padding: 0 var(--layout-spacing-half);
+    position: relative;
+}
+
+.masthead__logo {
+    display: inline-block;
     font-weight: 700;
     font-size: 1.5rem;
     text-decoration: none;
-    padding: var(--layout-spacing-half) var(--layout-spacing-half) var(--layout-spacing-quarter);
-    margin: 0 auto;
+    padding: var(--layout-spacing-half) 0 var(--layout-spacing-quarter);
     transition: opacity .2s ease-in-out;
-    max-width: var(--max-layout-width);
 }
 
-.logo,
-.logo:visited {
+.masthead__logo,
+.masthead__logo:visited {
     color: var(--site-color-red);
 }
 
-.logo:hover,
-.logo:focus {
+.masthead__logo:hover,
+.masthead__logo:focus {
     text-decoration: underline;
     opacity: .85;
 }
 
+.masthead__search-form {
+    background: var(--site-color-red);
+    padding: var(--layout-spacing-half);
+}
+
+.search-form--masthead {
+    margin: 0 auto;
+    max-width: calc(var(--max-layout-width) - var(--layout-spacing) * 2);
+    border: .0625rem solid #fff;
+}
+
 @media screen and (min-width: 64em) {
-    .logo {
-        padding-left: var(--layout-spacing);
-        padding-right: var(--layout-spacing);
+    .masthead__logo {
+        padding-left: var(--layout-spacing-half);
+        padding-right: var(--layout-spacing-half);
     }
 }
 
@@ -567,9 +539,9 @@ ol li:last-child::before {
 }
 
 .header__column {
+    margin: 0 auto;
     max-width: var(--max-layout-width);
     padding: 0 var(--layout-spacing-half);
-    margin: 0 auto;
 }
 
 .header__column a {
@@ -604,6 +576,7 @@ ol li:last-child::before {
 .menu__list-item {
     list-style-type: none;
     margin: 0;
+    max-width: 100%;
     padding: 0;
 }
 
@@ -708,9 +681,13 @@ ol li:last-child::before {
     text-decoration: none;
 }
 
-/* Menu toggle */
+/* Toggle */
 
-.menu-toggle-label {
+.js-toggle,
+.toggle-label {
+    background: transparent;
+    border: 0;
+    font-size: 1.1875rem;
     display: inline-block;
     position: absolute;
     top: 0;
@@ -724,22 +701,39 @@ ol li:last-child::before {
     transition: transform .2s ease-in-out;
 }
 
-.menu-toggle:checked + .menu-toggle-label {
+.js-toggle--search {
+    right: 5.375rem;
+}
+
+.js-toggle--active,
+.toggle:checked + .toggle-label {
     transform: rotate(90deg);
 }
 
-.menu-toggle ~ .menu { 
+.toggle ~ .toggle-target {
     display: block;
 }
 
-.menu-toggle:not(:checked) ~ .menu {
+.toggle:not(:checked) ~ .toggle-target {
     display: none;
 }
 
+.js-toggle + label {
+    display: none;
+}
+
+.js .js-toggle + label {
+    display: inline-block;
+}
+
 @media screen and (min-width: 64em) {
-    .menu-toggle + label,
-    .menu-toggle ~ .menu {
+    .js-toggle:not(.toggle--all) + label,
+    .toggle:not(.toggle--all) + label,
+    .toggle:not(.toggle--all) ~ .toggle-target {
         display: none;
+    }
+    .js-toggle--search {
+        right: 0;
     }
 }
 
@@ -919,6 +913,7 @@ ol li:last-child::before {
     border-radius: .25rem;
     margin: var(--layout-spacing-quarter);
     padding: var(--layout-spacing-half);
+    width: 100%;
 }
 
 .highlights__icon {
@@ -956,4 +951,57 @@ aside .highlights__headline {
     aside .highlights {
         display: block;
     }
+}
+
+/* Utils */
+
+.visually-hidden {
+    /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.visually-hidden a:focus,
+.visually-hidden input:focus,
+.visually-hidden button:focus {
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+.js-show,
+.js .js-hide {
+    display: none;
+}
+
+.js .js-show {
+    display: block;
+}
+
+.skip-link {
+    padding: 1rem;
+    background: #fff;
+    border-radius: .25rem;
+}
+
+.skip-link:focus {
+    position: fixed !important;
+    clip: unset;
+    width: auto;
+    height: auto;
+    display: inline-block;
+}
+
+#top-link {
+    position: fixed;
+    right: 1rem;
+    bottom: 0;
+    margin: 0;
+    border-radius: .25rem .25rem 0 0;
+}
+
+.js #top-link {
+    display: none;
 }

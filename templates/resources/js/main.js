@@ -9,15 +9,62 @@ if (!(window.CSS && window.CSS.supports && window.CSS.supports('--fake-var', 0))
     });
 }
 
-// Mobile menu toggle keyboard support
-document.querySelectorAll('.menu-toggle-label').forEach(function(toggleLabel) {
+// Toggle keyboard support
+document.querySelectorAll('.toggle-label').forEach(function(toggleLabel) {
     toggleLabel.addEventListener('keydown', function(event) {
         // 40 = down, 38 = up, 13 = enter, 32 = space
         if ([40, 38, 13, 32].indexOf(event.keyCode) > -1) {
-            const mobileMenuInput = event.target.previousElementSibling;
+            const toggleInput = event.target.previousElementSibling;
             event.preventDefault();
-            mobileMenuInput.checked = event.keyCode === 40 ? true : (event.keyCode === 38 ? false : !mobileMenuInput.checked);
-            mobileMenuInput.setAttribute('aria-expanded', mobileMenuInput.checked);
+            toggleInput.checked = event.keyCode === 40 ? true : (event.keyCode === 38 ? false : !toggleInput.checked);
+            toggleInput.setAttribute('aria-expanded', toggleInput.checked);
+        }
+    });
+});
+
+// JS show
+document.querySelectorAll('.js-show').forEach(function (item) {
+    item.removeAttribute('hidden');
+});
+
+// JS hide
+document.querySelectorAll('.js-hide').forEach(function (item) {
+//    item.setAttribute('hidden', true);
+});
+
+/**
+ * Helper function for displaying or hiding an element with JS toggle.
+ *
+ * @param {object} target
+ * @param {bool} hiddenState
+ */
+function toggleTarget(target, toggle, hiddenState) {
+    hiddenState = Boolean(hiddenState === undefined ? !(target.hasAttribute('hidden') || target.classList.contains('js-hide')) : !hiddenState);
+    target.hidden = hiddenState;
+    toggle.setAttribute('aria-expanded', !target.hidden);
+    if (hiddenState) {
+        target.classList.add('js-hide');
+        toggle.classList.remove('js-toggle--active');
+    } else {
+        target.classList.remove('js-hide');
+        toggle.classList.add('js-toggle--active');
+    }
+}
+
+// JS toggle
+document.querySelectorAll('.js-toggle').forEach(function (jsToggle) {
+    jsToggle.addEventListener('click', function(event) {
+        toggleTarget(document.getElementById(event.currentTarget.getAttribute('aria-controls')), event.currentTarget);
+    });
+    jsToggle.addEventListener('keydown', function(event) {
+        // 40 = down, 38 = up, 13 = enter, 32 = space
+        if ([40, 38, 13, 32].indexOf(event.keyCode) > -1) {
+            event.preventDefault();
+            toggleTarget(
+                document.getElementById(event.currentTarget.getAttribute('aria-controls')),
+                event.currentTarget,
+                event.keyCode === 40 ? true : (event.keyCode === 38 ? false : undefined)
+            );
         }
     });
 });

@@ -22,7 +22,10 @@ class SearchController extends \Wireframe\Controller {
 
         // Use SearchEngine for the site search feature.
         $searchEngine = $this->wire('modules')->get('SearchEngine');
-        return $searchEngine->render();
+        return $searchEngine->render([
+            'form',
+            'results',
+        ]);
     }
 
 }
