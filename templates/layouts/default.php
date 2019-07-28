@@ -48,7 +48,7 @@
                         <i class="fas fa-layer-group" aria-hidden="true"></i> <?= $site_name ?>
                     <?php endif; ?>
                 </a>
-                <button class="js-toggle js-toggle--search js-show" aria-controls="header-search-form" hidden>
+                <button class="js-toggle js-toggle--search js-show" data-focus-after="se-masthead-form-input" aria-controls="header-search-form" hidden>
                     <i class="fas fa-search" aria-hidden="true"></i>
                     <span class="visually-hidden"><?= __('Toggle header search form') ?></span>
                 </button>
