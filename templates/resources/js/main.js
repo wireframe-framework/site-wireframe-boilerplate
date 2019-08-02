@@ -129,7 +129,8 @@ document.querySelectorAll(menuItemSelector).forEach(function(menuItem, index) {
     submenuToggleSpan.appendChild(submenuToggleText);
     const submenuToggleIcon = document.createElement('i');
     submenuToggleIcon.setAttribute('aria-hidden', true);
-    submenuToggleIcon.classList.add(submenuToggleIconClass, submenuToggleIconClasses[submenu.hidden]);
+    submenuToggleIcon.classList.add(submenuToggleIconClass);
+    submenuToggleIcon.classList.add(submenuToggleIconClasses[submenu.hidden]);
     submenuToggle.appendChild(submenuToggleIcon);
 
     // Add submenu toggle button click event listener

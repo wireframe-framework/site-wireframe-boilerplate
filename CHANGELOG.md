@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.3] - 2019-08-02
+
+### Fixed
+- Change single instance of multiple classes being added with one classList.add() call to two calls instead (IE11).
+
 ## [0.11.2] - 2019-07-28
 
 ### Fixed
