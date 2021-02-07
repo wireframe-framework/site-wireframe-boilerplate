@@ -33,9 +33,9 @@ echo $wireframe->render([
             'form' => 'search-form &--masthead',
         ],
     ]) : null,
-    'body_class' => implode(array_filter([
+    'body_class' => implode(' ', array_filter([
         'template-' . ($wire->view->template ?: $page->template),
         $wire->view->template ? 'delegated-template-' . $page->template : '',
         $wire->view->hide_aside || $page->template == 'home' ? 'wide' : '',
-    ]), ' '),
+    ])),
 ]);
